@@ -28,7 +28,7 @@ public class ListsToDoListsSingleton {
         return toDoListsSingleton;
     }
 
-    public void addName(String title){
+    public void addTitle(String title){
         titles.add(title);
     }
 
@@ -40,15 +40,23 @@ public class ListsToDoListsSingleton {
         descriptions.add(description);
     }
 
-    public LinkedList<String>getTitles(){
+    /*
+    SO I CAN DO THE GETS LIKE THIS TOO WHICH WILL RETURN THE WHOLE LIST
+    RATHER THAN THE VALUE OF THE POSITION
+
+    public LinkedList<String>getTitlesList(){
         return titles;
+    }    */
+
+    public String getTitles(int position){
+        return titles.get(position);
     }
 
-    public LinkedList<String>getItems(){
-        return items;
+    public String getItems(int position){
+        return items.get(position);
     }
 
-    public LinkedList<String>getDescriptions(){
-        return descriptions;
+    public String getDescriptions(int position){
+        return descriptions.get(position);
     }
 }

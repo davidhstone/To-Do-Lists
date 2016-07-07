@@ -14,6 +14,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
+    ListsToDoListsSingleton listsToDoListsSingleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        listsToDoListsSingleton = ListsToDoListsSingleton.getInstance();
+
+        listsToDoListsSingleton.addTitle("My gross shopping list");
+        listsToDoListsSingleton.addItem("Cheese");
+        listsToDoListsSingleton.addDescription("spoiled cheese");
+
+        listsToDoListsSingleton.getTitles(0);
+        listsToDoListsSingleton.getItems(0);
+        listsToDoListsSingleton.getDescriptions(0);
+
+
     }
 
     @Override
@@ -60,5 +73,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    ListsToDoListsSingleton toDoListsSingleton = ListsToDoListsSingleton.getInstance();
+
+    public void setToDoListsSingleton(ListsToDoListsSingleton toDoListsSingleton) {
+        this.toDoListsSingleton = toDoListsSingleton;
+        toDoListsSingleton.addTitle("");
+        toDoListsSingleton.addItem("");
+        toDoListsSingleton.addDescription("");
+
+     /*
+        addAnotherTitle();
+        addAnotherItem();
+        addAnotherDescription();
+    }
+
+    public static void addAnotherTitle(){
+        this.toDoListsSingleton =
+        ListsToDoListsSingleton.addTitle("");
+    */
     }
 }
