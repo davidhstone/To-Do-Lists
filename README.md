@@ -1,8 +1,6 @@
 # To-Do-Lists
 Project 1
 
-# To-Do-Lists
-Project 1
 
 OK, this app adds to do lists to a list of to-do lists with a button
 clicking on a new list will bring you to a second screen in which 
