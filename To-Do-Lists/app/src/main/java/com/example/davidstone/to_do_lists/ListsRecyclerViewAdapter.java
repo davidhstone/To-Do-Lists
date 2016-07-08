@@ -1,5 +1,6 @@
 package com.example.davidstone.to_do_lists;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,16 @@ public class ListsRecyclerViewAdapter extends RecyclerView.Adapter<ListsCustomVi
         final int myPosition = position;
         final ListsCustomObject listsCustomObject = listsCustomObjectList.get(position);
         holder.title.setText(listsCustomObject.getTitle());
+        holder.itemView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(view.getContext(), ToDoListActivity.class);
+                        intent.putExtra("position", myPosition);
+                        view.getContext().startActivity(intent);
+                    }
+                }
+        );
 
 
     }

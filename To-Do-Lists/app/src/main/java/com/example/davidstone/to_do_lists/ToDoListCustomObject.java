@@ -17,6 +17,8 @@ public class ToDoListCustomObject {
 
     }
 
+
+
     public ToDoListCustomObject(String item, String description, boolean checked) {
 
         mItem = item;

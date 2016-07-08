@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,8 +16,10 @@ public class ToDoListRecyclerViewAdapter extends RecyclerView.Adapter<ToDoListCu
     List<ToDoListCustomObject> toDoListCustomObjectList;
 
     public ToDoListRecyclerViewAdapter(List<ToDoListCustomObject> toDoListCustomObjects){
-
-        toDoListCustomObjectList = toDoListCustomObjects;
+        if (toDoListCustomObjects == null)
+            toDoListCustomObjectList = new LinkedList<>();
+        else
+            toDoListCustomObjectList = toDoListCustomObjects;
     }
 
     @Override
@@ -35,6 +38,7 @@ public class ToDoListRecyclerViewAdapter extends RecyclerView.Adapter<ToDoListCu
         final ToDoListCustomObject toDoListCustomObject = toDoListCustomObjectList.get(position);
         holder.item.setText(toDoListCustomObject.getItem());
         holder.description.setText(toDoListCustomObject.getDescription());
+
         holder.checked.setChecked(toDoListCustomObject.getChecked());
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
